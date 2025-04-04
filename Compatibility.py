@@ -13,19 +13,19 @@ def prereq():
 
     print("Checking for required hardware...")
 
-    devices = subprocess.check_output(['wlan', 'iw', 'dev', 'show', 'network'])
+    try:
+        devices = subprocess.check_output(['iw', 'dev'])
+        devices = devices.decode('utf-8').replace("\r", "")
 
-    devices = devices.decode('ascii')
-    devices = devices.replace("\r","")
+        if "wlan0" in devices and "wlan1" in devices:
+            print("RPI can be configured into an AP!")
+        elif "wlan0" in devices:
+            print("RPI must have 1 more Wi-Fi adapter")
+        else:
+            print("No Wi-Fi adapter found!")
 
-    print(devices)
-
-    if "wlan0" in devices and "wlan1" in devices:
-        print("RPI can be configured into an AP!")
-    elif devices == ('wlan0'):
-        print("RPI must have 1 more Wi-Fi Adapter")
-    else:
-        print("No Wi-Fi adpater found!")
+    except subprocess.CalledProcessError:
+        print("Error reading Wi-Fi devices.")
 
 def app_status():
     try:
@@ -34,4 +34,3 @@ def app_status():
         return True
     except (subprocess.CalledProcessError, FileNotFoundError):
         return False
-    
