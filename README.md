@@ -15,3 +15,4 @@ The file sets up dnsmasq and hostapd files as well as a way to customize how you
 |Uninstallation|Completed|No Issues|
 |Debugging|Ongoing|Better Debugging system needed|
 |Error-Checker|Ongoing|Needed more Error Checking|
+|Documentation|Ongoing|No Issues|
