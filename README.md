@@ -12,6 +12,6 @@ The file sets up dnsmasq and hostapd files as well as a way to customize how you
 |----|--------|------|
 |Auto-Config|Completed|No Issues|
 |Pre-requisites|Ongoing|More in-depth information needed|
-|Uninstallation|NA|NA|
-|Debugging|Ongoing|More organization and better system needed|
-|Error-Checker|NA|NA|
+|Uninstallation|Completed|No Issues|
+|Debugging|Ongoing|Better Debugging system needed|
+|Error-Checker|Ongoing|Needed more Error Checking|
