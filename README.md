@@ -10,7 +10,7 @@ The file sets up dnsmasq and hostapd files as well as a way to customize how you
 
 |Task|Progress|Issues|
 |----|--------|------|
-|Auto-Config|Completed|No Issues|
+|Auto-Config|Ongoing|Better Organization needed and any problems need to be resolved|
 |Pre-requisites|Ongoing|More in-depth information needed|
 |Uninstallation|Completed|No Issues|
 |Debugging|Ongoing|Better Debugging system needed|
