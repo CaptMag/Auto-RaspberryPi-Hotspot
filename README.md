@@ -11,8 +11,9 @@ The file sets up dnsmasq and hostapd files as well as a way to customize how you
 |Task|Progress|Issues|
 |----|--------|------|
 |Auto-Config|Ongoing|Better Organization needed and any problems need to be resolved|
-|Pre-requisites|Ongoing|More in-depth information needed|
+|Pre-requisites|Completed|No Issues|
 |Uninstallation|Completed|No Issues|
-|Debugging|Ongoing|Better Debugging system needed|
-|Error-Checker|Ongoing|Needed more Error Checking|
+|Debugging|Completed|No Issues|
+|Error-Checker|Ongoing|May be merged in with Debugging|
 |Documentation|Ongoing|No Issues|
+|LLM Support|Ongoing|LLM needed and proper user functionality|
