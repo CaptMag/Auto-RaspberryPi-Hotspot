@@ -46,3 +46,9 @@ Currently being resolved to properly be able to run the script
 
 Currently a UnitTest is required in order to intialize any ongoing problems as well as making sure everything is working as intended
 Next on the list is to ensure parameters are met and to see if the code can "break"
+
+## Running Program
+
+If anyone is interested to run this program you must run this command on your Raspberry Pi Terminal
+`https://github.com/CaptMag/Auto-RaspberryPi-Hotspot.git`
+This will download all the needed files, however due to not being complete, this is just here for show honestly.
