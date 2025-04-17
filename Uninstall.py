@@ -1,6 +1,6 @@
 # uninstall.py
 import subprocess
-import sys
+import time
 import os
 
 def uninstall_hotspot():
@@ -8,15 +8,17 @@ def uninstall_hotspot():
         question = input("Would you really like to uninstall everything? (yes/no): ").strip().lower()
 
         if question == 'yes':
-            print("Stopping Services...")
+            print("\nStopping Services... \n")
+            time.sleep(2)
             subprocess.run(["sudo", "systemctl", "stop", "hostapd"], check=True)
             subprocess.run(["sudo", "systemctl", "stop", "dnsmasq"], check=True)
 
             print("Removing Packages...")
+            time.sleep(2)
             subprocess.run(["sudo", "apt", "purge", "-y", "hostapd"], check=True)
             subprocess.run(["sudo", "apt", "purge", "-y", "dnsmasq"], check=True)
 
-            print("Removing Configuration Files...")
+            print("\nRemoving Configuration Files... \n")
 
             hostapd = "/etc/hostapd/hostapd.conf"
             dnsmasq = "/etc/dnsmasq.conf"
@@ -27,9 +29,12 @@ def uninstall_hotspot():
                 subprocess.run(["sudo", "rm", "-rf", "/etc/dnsmasq.conf"], check=True)
             
             print("Uninstallation complete.")
+            time.sleep(1)
             break
         elif question == 'no':
             print("Uninstallation terminated.")
+            time.sleep(1)
             return
         else:
             print("Error! No valid answer provided!")
+            time.sleep(1)
