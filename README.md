@@ -29,10 +29,10 @@ As of right now there are some current problems when it comes to the code
 
 Some resolved issues:
 
-WiFi Adapter checker is currently improved to use `nmcli device status` to check if a user has at least 2 wifi adpaters no matter what they are named
-More comments have been made to some files to further explain its uses and how it works
-errors revolving around compatibility have been fixed
-Network Manager, Hotspot Setup, Menu, Uninstall, Check Configurations, and Compatibility have been vastly re-organized
+WiFi Adapter checker is currently improved to use `nmcli device status` to check if a user has at least 2 wifi adpaters no matter what they are named  
+More comments have been made to some files to further explain its uses and how it works  
+errors revolving around compatibility have been fixed  
+Network Manager, Hotspot Setup, Menu, Uninstall, Check Configurations, and Compatibility have been vastly re-organized  
 
 ## Newly found issue
 
@@ -44,11 +44,11 @@ Currently being resolved to properly be able to run the script
 
 ## Future Goals
 
-Currently a UnitTest is required in order to intialize any ongoing problems as well as making sure everything is working as intended
+Currently a UnitTest is required in order to intialize any ongoing problems as well as making sure everything is working as intended  
 Next on the list is to ensure parameters are met and to see if the code can "break"
 
 ## Running Program
 
-If anyone is interested to run this program you must run this command on your Raspberry Pi Terminal
-`https://github.com/CaptMag/Auto-RaspberryPi-Hotspot.git`
+If anyone is interested to run this program you must run this command on your Raspberry Pi Terminal  
+`https://github.com/CaptMag/Auto-RaspberryPi-Hotspot.git`  
 This will download all the needed files, however due to not being complete, this is just here for show honestly.
