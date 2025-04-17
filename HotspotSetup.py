@@ -9,9 +9,9 @@ def setup_hotspot():
             break
 
 
-    valid_bands = ["g", "a", "ad"]
+    valid_bands = ["gb", "a", "ad"]
     while True:
-       GHz = input("Choose g for 2.4 GHz, a for 5, ad for 60: ")
+       GHz = input("Choose gb for 2.4 GHz, a for 5, ad for 60: ")
        if GHz in valid_bands:
            break
        print(f"Invalid band. Please choose from: {', '.join(valid_bands)}")
@@ -44,7 +44,7 @@ def setup_hotspot():
 def validate_channel(GHz, channel):
     try:
         channel = int(channel)
-        if GHz == "g" and 1 <= channel <= 11:
+        if GHz == "gb" and 1 <= channel <= 11:
             return True
         elif GHz == "a" and channel in [36, 40, 44, 48]:
             return True
