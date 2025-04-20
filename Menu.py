@@ -19,7 +19,7 @@ def menu():
         elif choice == "4":
             break
 
-def sub_choice1():
+def sub_choice1(): # installtion functions and compatability
     os.system('clear')
     print("[1] Check for device compatability")
     print("[2] Run Installtion")
@@ -40,15 +40,15 @@ def creation():
     from NetMan import configure_network
     from SysConf import configure_hostapd, configure_dnsmasq, setup_iptables
     # Get the parameters from setup_hotspot
-    name, GHz, Channel, Password, IPv4, country, route = setup_hotspot()
+    name, GHz, nmcli_band, Channel, Password, IPv4, country, route = setup_hotspot()
     
     # Pass them to each function that needs them
-    configure_network(name, GHz, Channel, Password, IPv4, country, route)
+    configure_network(name, GHz, nmcli_band, Channel, Password, IPv4, country, route)
     configure_hostapd(name, GHz, Channel, Password, country)
     configure_dnsmasq(IPv4, route)
     setup_iptables()
 
-def sub_choice2():
+def sub_choice2(): # Subchoice for debugging and file integrity
     os.system('clear')
     print("[1] Check for file integrity")
     print("[2] Debug Raspberry-Pi Issues")
@@ -65,17 +65,17 @@ def sub_choice2():
 def check_file():
     os.system('clear')
     from check_configs import check_config_files
-    check_config_files()
+    check_config_files() # runs file checker
 
 def diagnosis():
     os.system('clear')
     from hostapd_diagnose import hostapd_issues
-    hostapd_issues()
+    hostapd_issues() # self-diagnoses hostapd issues
 
 def uninstallation():
     os.system('clear')
     from Uninstall import uninstall_hotspot
-    uninstall_hotspot()
+    uninstall_hotspot() # Access Point Uninstall Script
 
 
 # Call the menu function to start the program
