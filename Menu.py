@@ -39,10 +39,13 @@ def creation():
     from HotspotSetup import setup_hotspot
     from NetMan import configure_network
     from SysConf import configure_hostapd, configure_dnsmasq, setup_iptables
-    setup_hotspot()
-    configure_network()
-    configure_hostapd()
-    configure_dnsmasq()
+    # Get the parameters from setup_hotspot
+    name, GHz, Channel, Password, IPv4, country, route = setup_hotspot()
+    
+    # Pass them to each function that needs them
+    configure_network(name, GHz, Channel, Password, IPv4, country, route)
+    configure_hostapd(name, GHz, Channel, Password, country)
+    configure_dnsmasq(IPv4, route)
     setup_iptables()
 
 def sub_choice2():
