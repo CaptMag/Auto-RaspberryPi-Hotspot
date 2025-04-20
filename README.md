@@ -10,10 +10,10 @@ The file sets up dnsmasq and hostapd files as well as a way to customize how you
 
 |Task|Progress|Issues|
 |----|--------|------|
-|Auto-Config|Ongoing|Better Organization needed and any problems need to be resolved|
+|Auto-Config|Completed|No Issues (!!!)|
 |Pre-requisites|Completed|No Issues|
 |Uninstallation|Completed|No Issues|
-|Debugging|Completed|No Issues|
+|Debugging|Ongoing|Script does not execute properly|
 |Error-Checker|Ongoing|May be merged in with Debugging|
 |Documentation|Ongoing|No Issues|
 |LLM Support|Ongoing|LLM needed and proper user functionality|
@@ -22,9 +22,9 @@ The file sets up dnsmasq and hostapd files as well as a way to customize how you
 
 As of right now there are some current problems when it comes to the code
    1. Command Line Injection is currently applicable due to improper security checks
-   2. Organization is lacking, lack of comments, explanations, imporper use of functions and excess clutter
-   3. Network Manager is missing attributes from Hotspot Setup Script
-   4. Some statements must be validated and should execute an error message if statement does not meet criteria
+   2. Organization is lacking, lack of comments, explanations, imporper use of functions and excess clutter (FIXED)
+   3. Network Manager is missing attributes from Hotspot Setup Script (FIXED)
+   4. Some statements must be validated and should execute an error message if statement does not meet criteria (ONGOING)
    5. password strength checker must be applied as well as removing it as plain text
 
 Some resolved issues:
@@ -36,19 +36,20 @@ Network Manager, Hotspot Setup, Menu, Uninstall, Check Configurations, and Compa
 
 ## Newly found issue
 
-When running the initial installtion script, some lines in the Menu program do not have the given attributes from HotspotSetup.py
-
-![image](https://github.com/user-attachments/assets/c988b21a-9b93-45cd-80c7-140a6c559976)
-
-Currently being resolved to properly be able to run the script
+Currently the old issue of the functions not passing to Netman.py have been resolved, and as of right now there are only a few issues with hostapd_diagnose.py
 
 ## Future Goals
 
 Currently a UnitTest is required in order to intialize any ongoing problems as well as making sure everything is working as intended  
-Next on the list is to ensure parameters are met and to see if the code can "break"
+Next on the list is to ensure parameters are met and to see if the code can "break"  
+Add a proper wifi card checker for Netman.py (ensure that it selects the proper wifi card name rather than just wlan0)  
+fix hostapd_diagnose.py  
+Add a proper password checker and error checker for input statements (such as country code)
 
 ## Running Program
 
 If anyone is interested to run this program you must run this command on your Raspberry Pi Terminal  
 `https://github.com/CaptMag/Auto-RaspberryPi-Hotspot.git`  
+This script also requires the user to use `sudo` when running the main config script  
+`sudo /bin/python /home/$whoami/Documents/Auto-RaspberryPi-Hotspot/Menu.py`  
 This will download all the needed files, however due to not being complete, this is just here for show honestly.
