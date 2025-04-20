@@ -1,5 +1,6 @@
 from pathlib import Path
 from subprocess import run
+import time
 
 def configure_hostapd(name, GHz, Channel, Password, country):
     hostapd_conf = Path("/etc/hostapd/hostapd.conf")
@@ -50,10 +51,22 @@ def setup_iptables():
     run("sudo iptables -A FORWARD -i wlan0 -o wlan1 -j ACCEPT", shell=True)
     run("sudo netfilter-persistent save", shell=True)
 
+
+    print("\n Starting Hostapd... \n")
     run("sudo systemctl unmask hostapd", shell=True)
     run("sudo systemctl enable hostapd", shell=True)
-    run("sudo systemctl enable dnsmasq", shell=True)
     run("sudo systemctl start hostapd", shell=True)
+    time.sleep(2)
+
+    print("\n Starting Dnsmasq... \n")
+    run("sudo systemctl enable dnsmasq", shell=True)
     run("sudo systemctl start dnsmasq", shell=True)
+    time.sleep(2)
+
+    print("\n Status of Hostapd... \n")
     run("sudo systemctl status hostapd", shell=True)
+    time.sleep(2)
+
+    print("\n Status of Dnsmasq... \n")
     run("sudo systemctl status dnsmasq", shell=True)
+    time.sleep(2)
