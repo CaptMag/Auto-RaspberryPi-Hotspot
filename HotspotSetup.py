@@ -9,9 +9,9 @@ def setup_hotspot():
             break
 
 
-    valid_bands = ["gb", "a", "ad"]
+    valid_bands = ["g", "a", "ad"]
     while True:
-       GHz = input("Choose gb for 2.4 GHz, a for 5, ad for 60: ")
+       GHz = input("Choose g for 2.4 GHz, a for 5, ad for 60: ")
        if GHz in valid_bands:
            break
        print(f"Invalid band. Please choose from: {', '.join(valid_bands)}")
@@ -24,7 +24,7 @@ def setup_hotspot():
     Password = input("Create a valid and secure password: ")
 
     while True:
-        IPv4 = input("Enter the IPv4 subnet you wish to use: ")
+        IPv4 = input("Enter the IPv4 subnet you wish to use (e.g., 192.168.1.0/24): ")
         if IPv4_subnet(IPv4):
             break
 
@@ -44,7 +44,7 @@ def setup_hotspot():
 def validate_channel(GHz, channel):
     try:
         channel = int(channel)
-        if GHz == "gb" and 1 <= channel <= 11:
+        if GHz == "g" and 1 <= channel <= 11:
             return True
         elif GHz == "a" and channel in [36, 40, 44, 48]:
             return True
@@ -59,6 +59,10 @@ def validate_channel(GHz, channel):
     
 def IPv4_subnet(subnet):
     try:
+
+        if "/" not in subnet:
+            print("Error: IP subnet must be in CIDR notation (e.g., 192.168.1.0/24)")
+            return False
 
         ipaddress.IPv4Network(subnet, strict=False)
         return True
