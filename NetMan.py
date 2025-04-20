@@ -4,7 +4,7 @@ from SysConf import configure_hostapd, configure_dnsmasq, setup_iptables
 
 # Designed to setup the RPI in a proper Access Point using the information taken from SysConf.py
 
-def configure_network(name, GHz, Channel, Password, IPv4, country, route):
+def configure_network(name, GHz, Channel, Password, IPv4, country, route, nmcli_band):
 
     try:
         print("\nStarting System Execution...\n")
@@ -22,7 +22,7 @@ def configure_network(name, GHz, Channel, Password, IPv4, country, route):
 
         # Configures the IPv4 Subnet settings
 
-        print("Configruing IPv4 Settings...")
+        print("Configuring IPv4 Settings...")
         time.sleep(2)
         run(f"sudo nmcli con modify {name} ipv4.addresses {IPv4}", shell=True, check=True, stdout=PIPE, stderr=PIPE)
         run(f"sudo nmcli con modify {name} ipv4.method manual", shell=True, check=True, stdout=PIPE, stderr=PIPE)
@@ -31,7 +31,7 @@ def configure_network(name, GHz, Channel, Password, IPv4, country, route):
 
         print("Configuring Wireless Settings...")
         time.sleep(2)
-        run(f"sudo nmcli con modify {name} 802-11-wireless.band {GHz}", shell=True, check=True, stdout=PIPE, stderr=PIPE)
+        run(f"sudo nmcli con modify {name} 802-11-wireless.band {nmcli_band}", shell=True, check=True, stdout=PIPE, stderr=PIPE)
         run(f"sudo nmcli con modify {name} 802-11-wireless.channel {Channel}", shell=True, check=True, stdout=PIPE, stderr=PIPE)
 
         # Configures AP to use WPA2 (minimum security) As well as setting up the password
@@ -47,7 +47,7 @@ def configure_network(name, GHz, Channel, Password, IPv4, country, route):
         time.sleep(2)
         run(f"sudo nmcli con up {name}", shell=True, check=True, stdout=PIPE, stderr=PIPE)
 
-        # Shows the ip address pof wlan0 (or any selected interface) to ensure it matches with users given IPv4 Address
+        # Shows the ip address of wlan0 (or any selected interface) to ensure it matches with users given IPv4 Address
 
         print("Network Interface Status:")
         time.sleep(2)
